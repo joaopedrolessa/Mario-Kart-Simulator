@@ -87,11 +87,12 @@ async function playReceEngine(character1, character2){
 
         if(powerResult1 > powerResult2 && character2.POINTS > 0){
             console.log(`${character1.NAME} Win the Battle ${character2.NAME} lost the point 🐢`)
+            character2.POINTS--
         }
 
         if(powerResult2 > powerResult1 && character1.POINTS > 0){
             console.log(`${character2.NAME} Win the Battle ${character1.NAME} lost the point 🐢`)
-            character2.POINTS--
+            character1.POINTS--
         }
 
 
@@ -105,6 +106,7 @@ async function playReceEngine(character1, character2){
         character1.POINTS++;
      }else if(testSkill2 > testSkill1) {
         console.log(`${character2.NAME} Scored a point!!!`)
+        character2.POINTS++;
      }
 
      console.log("--------------------------------")
@@ -116,15 +118,15 @@ async function playReceEngine(character1, character2){
 
 async function declareWinner(character1, character2){
     console.log("Final result: ")
-    console.log(`${character1.NAME}: ${character2.POINTS} Points`)
-    console.log(`${character2.NAME}: ${character1.POINTS} Points`)
+    console.log(`${character1.NAME}: ${character1.POINTS} Points`)
+    console.log(`${character2.NAME}: ${character2.POINTS} Points`)
 
     if(character1.POINTS > character2.POINTS)
         console.log(`\n${character1.NAME} Win the race congratulation!!! 🏆`)
     else if (character2.POINTS > character1.POINTS)
         console.log(`\n${character2.NAME} Win the race congratulation!!! 🏆`)
      else 
-        console.log("A corrida terminou em empate")
+        console.log("The race ended in a tie!")
     
 }
 
